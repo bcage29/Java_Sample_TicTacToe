@@ -2,6 +2,10 @@ package com.example.sampleapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
+
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -30,6 +34,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppCenter.start(getApplication(), "3a66ceb3-8a2e-41ae-8927-807c6d592caf",
+                  Analytics.class, Crashes.class);
+                  
         setContentView(R.layout.activity_main);
 
         playerOneScore = (TextView) findViewById(R.id.playerOneScore);
