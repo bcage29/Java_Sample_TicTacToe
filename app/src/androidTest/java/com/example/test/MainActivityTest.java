@@ -1,4 +1,4 @@
-package com.example.sampleapp;
+package com.example.test;
 
 import static org.junit.Assert.*;
 
@@ -13,6 +13,9 @@ import androidx.test.rule.ActivityTestRule;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
+
+import com.example.sampleapp.MainActivity;
+import com.example.sampleapp.R;
 
 
 public class MainActivityTest {
