@@ -60,6 +60,7 @@ dependencies {
     androidTestImplementation 'info.cukes:cucumber-java:1.2.6'
     androidTestImplementation 'info.cukes:cucumber-junit:1.2.6'
     androidTestImplementation 'com.android.support:support-annotations:28.0.0'
+    androidTestImplementation('com.microsoft.appcenter:espresso-test-extension:1.5')
 }
 
 repositories {

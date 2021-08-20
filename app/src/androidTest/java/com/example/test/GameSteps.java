@@ -22,11 +22,16 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import com.microsoft.appcenter.espresso.Factory;
+import com.microsoft.appcenter.espresso.ReportHelper;
 
 public class GameSteps {
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
+
+    @Rule
+    public ReportHelper reportHelper = Factory.getReportHelper();
 
     private MainActivity main;
     private Activity activity;
@@ -41,6 +46,7 @@ public class GameSteps {
     @After("@play-game-feature")
     public void tearDown() {
         mActivityTestRule.finishActivity();
+        reportHelper.label("Stopping App");
     }
 
     @Given("check winning user")
