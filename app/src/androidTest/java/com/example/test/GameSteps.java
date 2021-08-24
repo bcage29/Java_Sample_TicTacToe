@@ -1,5 +1,8 @@
 package com.example.test;
 
+import com.microsoft.appcenter.espresso.Factory;
+import com.microsoft.appcenter.espresso.ReportHelper;
+
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -16,22 +19,26 @@ import android.content.Intent;
 import android.widget.TextView;
 
 import org.junit.Rule;
+import org.junit.runner.RunWith;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import com.microsoft.appcenter.espresso.Factory;
-import com.microsoft.appcenter.espresso.ReportHelper;
+import cucumber.api.junit.Cucumber;
 
+
+
+//@RunWith(Cucumber.class)
 public class GameSteps {
+
+    @Rule
+    public ReportHelper reportHelper = Factory.getReportHelper();
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
 
-    @Rule
-    public ReportHelper reportHelper = Factory.getReportHelper();
 
     private MainActivity main;
     private Activity activity;
@@ -45,8 +52,8 @@ public class GameSteps {
 
     @After("@play-game-feature")
     public void tearDown() {
-        mActivityTestRule.finishActivity();
         reportHelper.label("Stopping App");
+        mActivityTestRule.finishActivity();
     }
 
     @Given("check winning user")
